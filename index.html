@@ -35,18 +35,12 @@
   const textDiv = document.getElementById("text");
   const btn = document.getElementById("btn");
 
-  let count = 0;
   let index = 0;
 
   function showSequence() {
-    if (count < 5) {
-      if (index < sequence.length) {
-        textDiv.textContent = sequence[index];
-        index++;
-      } else {
-        index = 0;
-        count++;
-      }
+    if (index < sequence.length) {
+      textDiv.textContent = sequence[index];
+      index++;
       setTimeout(showSequence, 800);
     } else {
       // 結合表示
