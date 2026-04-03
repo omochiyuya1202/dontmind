@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Message</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-size: 8vw;
+      font-weight: bold;
+      text-align: center;
+      flex-direction: column;
+    }
+    #btn {
+      display: none;
+      margin-top: 20px;
+      font-size: 5vw;
+      padding: 10px 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="text"></div>
+<button id="btn">了解</button>
+
+<script>
+  const sequence = ["D", "O", "N", "T", "MIND 次一本！！"];
+  const fullText = "Don't Mind 次一本";
+  const textDiv = document.getElementById("text");
+  const btn = document.getElementById("btn");
+
+  let count = 0;
+  let index = 0;
+
+  function showSequence() {
+    if (count < 5) {
+      if (index < sequence.length) {
+        textDiv.textContent = sequence[index];
+        index++;
+      } else {
+        index = 0;
+        count++;
+      }
+      setTimeout(showSequence, 800);
+    } else {
+      // 結合表示
+      textDiv.textContent = fullText;
+      btn.style.display = "block";
+    }
+  }
+
+  btn.onclick = () => {
+    textDiv.textContent = "ナイス健康診断でした！";
+    btn.style.display = "none";
+  };
+
+  showSequence();
+</script>
+
+</body>
+</html>
